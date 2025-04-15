@@ -1,0 +1,92 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-image: url('Images/Wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #333;
+    backdrop-filter: brightness(0.95);
+  }
+  .header {
+    background: rgba(132, 92, 155, 0.95);
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    border-bottom: 4px solid #fff;
+  }
+  .main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    max-width: 1000px;
+    margin: 2rem auto;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  .right-side {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    
+
+  }
+  .left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+  }
+  section {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  input, select, button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  button {
+    background-color: #b71d81;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #ad1fad;
+  }
+  .event-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    margin-bottom: 1rem;
+  }
+  .event-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #5a0e58;
+  }
+  .confirmation {
+    color: green;
+    font-weight: bold;
+  }
+  .calendar-circle {
+    width: 250px;
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1rem;
+  }

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Booking System</title>
+
+ 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-image: url('Images/img.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      color: #333;
+      backdrop-filter: brightness(0.95);
+    }
+
+    header {
+    
+      background: #020024; 
+      background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 3rem;
+      font-weight: bold;
+      border-bottom: 4px solid #fff;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      max-width: 1000px;
+      margin: 2rem auto;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+
+    .right-side, .left-side {
+      display: flex;
+      flex-direction: row;
+      gap: 1.5rem;
+      flex-wrap: nowrap;
+    }
+
+    section {
+      
+      background:linear-gradient(90deg, #efd5ff 0%, #515ada 100%);
+
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #b71d81;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ad1fad;
+    }
+
+    .event-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+      margin-bottom: 1rem;
+    }
+
+    .event-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #5a0e58;
+    }
+
+    .calendar-circle {
+      width: 250px;
+      height: 250px;
+     
+      background: #070707;
+background:linear-gradient(90deg, #fcff9e 0%, #c67700 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      margin-bottom: 1rem;
+    }
+
+    #confirmation {
+      color: green;
+      font-weight: bold;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <header>
+    Event Booking 
+  </header>
+
+
+  <main>
+ 
+    <div class="left-side">
+      <section class="calendar-circle">
+        <input type="text" id="eventDate" placeholder="Pick a date" style="width: 80%; border-radius: 8px; padding: 0.5rem;">
+      </section>
+      <section>
+        <h3>Upcoming Events</h3>
+        <div class="event-card">
+          <h3>Party - 26th April</h3>
+          <p>Location: pune</p>
+        </div>
+        <div class="event-card">
+          <h3>Birthday - 01 April</h3>
+          <p>Location:  om Hall</p>
+        </div>
+      </section>
+    </div>
+
+    <div class="right-side">
+      <section>
+        <h2>Book  Event</h2>
+        <form id="bookingForm">
+          <input type="text" id="name" placeholder="Name" required>
+          <input type="email" id="email" placeholder="Email" required>
+          <input type="tel" id="contact" placeholder="Contact Number" required>
+          <select id="eventType">
+            <option value="">Select Event Type</option>
+            <option value="Wedding">party</option>
+            <option value="Wedding">Meeting</option>
+
+            <option value="Birthday">Birthday</option>
+            <option value="Corporate">business</option>
+          </select>
+          <input type="number" id="attendees" placeholder="Number of Attendees" required>
+          <button type="submit">Submit</button>
+        </form>
+        <p id="confirmation">✅ Booking Submitted Successfully!</p>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script>
+    flatpickr("#eventDate", {
+      dateFormat: "Y-m-d",
+      minDate: "today"
+    });
+
+    const form = document.getElementById('bookingForm');
+    const confirmation = document.getElementById('confirmation');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const contact = document.getElementById("contact").value.trim();
+
+      if (!name || !email || !contact) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      confirmation.style.display = "block";
+
+      form.reset();
+
+      setTimeout(() => {
+        confirmation.style.display = "none";
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
